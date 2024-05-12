@@ -30,3 +30,7 @@ exports {
     'AmbientSpeech',
     'AmbientPosSpeech'
 }
+
+files {
+    'client/data/*.lua',
+}
