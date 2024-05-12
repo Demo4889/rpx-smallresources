@@ -1,10 +1,8 @@
-config = Config
-
 CreateThread(function()
     while true do
-        SetDiscordAppId(config.discordId)
-        SetDiscordRichPresenceAsset(config.discordAsset)
-        SetDiscordRichPresenceAssetText(config.discordAssetText)
+        SetDiscordAppId(Config.Discord.discordId)
+        SetDiscordRichPresenceAsset(Config.Discord.discordAsset)
+        SetDiscordRichPresenceAssetText(Config.Discord.discordAssetText)
 
         while not GlobalState.PlayerCount do
             Wait(500)

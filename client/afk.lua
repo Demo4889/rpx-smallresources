@@ -12,7 +12,7 @@ end)
 
 CreateThread(function()
     local prevPos, time
-    local secondsUntilKick = 1800
+    local secondsUntilKick = Config.AFKKick
     local timeMinutes = {
         ['900'] = 'minutes',
         ['600'] = 'minutes',
