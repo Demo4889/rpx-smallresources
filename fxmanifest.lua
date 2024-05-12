@@ -25,3 +25,8 @@ dependencies {
     'ox_lib',
     'rpx-core'
 }
+
+exports {
+    'AmbientSpeech',
+    'AmbientPosSpeech'
+}
