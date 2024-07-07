@@ -13,7 +13,7 @@ Config = {
     },
 
     Discord = {
-        discordId = "904533268542652418", -- Your discord server ID (Right click your server icon and select the "Copy Server ID" at the bottom)
+        discordId = "", -- Your discord server ID (Right click your server icon and select the "Copy Server ID" at the bottom)
         discordAsset = "logo_name",
         discordAssetText = "logo text",
     },
