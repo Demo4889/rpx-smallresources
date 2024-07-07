@@ -34,9 +34,9 @@ CreateThread(function()
                             if time > 0 then
                                 local _type = timeMinutes[tostring(time)]
                                 if _type == 'minutes' then
-                                    lib.notify({title = "AFK", description = "You will be dropped in ".. math.ceil(time / 60) .. ' minutes for being AFK', icon = "fas fa-clock"})
+                                    lib.notify({title = "AFK", description = locale('afk-minutes'):format(math.ceil(time/60)), icon = "fas fa-clock"})
                                 elseif _type == 'seconds' then
-                                    lib.notify({title = "AFK", description = "You will be dropped in " .. time .. ' seconds for being AFK', icon = "fas fa-clock"})
+                                    lib.notify({title = "AFK", description = locale('afk-seconds'):format(time), icon = "fas fa-clock"})
                                 end
                                 time -= 10
                             else

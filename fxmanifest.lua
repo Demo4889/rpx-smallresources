@@ -10,7 +10,7 @@ version '0.0.1'
 
 shared_scripts {
     '@ox_lib/init.lua',
-    'shared/config.lua'
+    'init.lua'
 }
 
 client_scripts {
@@ -32,5 +32,6 @@ exports {
 }
 
 files {
-    'client/data/*.lua',
+    'locales/*.json',
+    'client/data/*.lua'
 }

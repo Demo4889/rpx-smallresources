@@ -1,0 +1,8 @@
+{
+    "afk-kick": "You have been kicked for being AFK",
+    "afk-minutes": "You will be dropped in %s minutes for being AFK",
+    "afk-seconds": "You will be dropped in %s seconds for being AFK",
+    "log-name": "[RPX-Core Logs]",
+    "log-failed": "Tried to call a log that isn't configured with the name of %s",
+    "log-fivemanage": "You need to set the FiveManage API key in your server.cfg"
+}

@@ -2,7 +2,7 @@ RPX = exports['rpx-core']:GetObject()
 
 RegisterNetEvent('rpx-afkkick:server:AFKKick', function()
     local src = source
-	DropPlayer(src, 'You Have Been Kicked For Being AFK')
+	DropPlayer(src, locale{'afk-kick'})
 end)
 
 exports['rpx-core']:CreateCallback('rpx-afkkick:server:GetPermissionGroup', function(source, cb)

@@ -39,13 +39,13 @@ RegisterNetEvent('rpx-log:server:CreateLog', function(name, message, title, colo
             LogData[type] = {}
         end
         table.insert(LogData[type], log)
-        print("[RPX Logs] ".. log)
+        print(locale('log-name').. log)
     elseif Config.Logs == 'discord' then
         local postData = {}
         local tag = tagEveryone or false
 
         if not LogTypes[name] then
-            print('Tried to call a log that isn\'t configured with the name of ' .. name)
+            print(locale('log-failed'):format(name))
             return
         end
         local webHook = LogTypes[name] ~= '' and LogTypes[name] or LogTypes['default']
@@ -58,7 +58,7 @@ RegisterNetEvent('rpx-log:server:CreateLog', function(name, message, title, colo
                 },
                 ['description'] = message,
                 ['author'] = {
-                    ['name'] = 'RPX-Core Logs',
+                    ['name'] = locale('log-name'),
                     ['icon_url'] = 'https://avatars.githubusercontent.com/u/130105567?s=200&v=4',
                 },
                 ['image'] = imageUrl and imageUrl ~= '' and { ['url'] = imageUrl } or nil,
@@ -70,9 +70,9 @@ RegisterNetEvent('rpx-log:server:CreateLog', function(name, message, title, colo
 
         if #logQueue[name] >= 10 then
             if tag then
-                postData = { username = 'RPX Logs', content = '@everyone', embeds = {} }
+                postData = { username = locale('log-name'), content = '@everyone', embeds = {} }
             else
-                postData = { username = 'RPX Logs', embeds = {} }
+                postData = { username = locale('log-name'), embeds = {} }
             end
             for i = 1, #logQueue[name] do postData.embeds[#postData.embeds + 1] = logQueue[name][i].data[1] end
             PerformHttpRequest(logQueue[name][1].webhook, function() end, 'POST', json.encode(postData), { ['Content-Type'] = 'application/json' })
@@ -81,7 +81,7 @@ RegisterNetEvent('rpx-log:server:CreateLog', function(name, message, title, colo
     elseif Config.Logs == 'fivemanage' then
         local FiveManageAPIKey = GetConvar('FIVEMANAGE_LOGS_API_KEY', 'false')
         if FiveManageAPIKey == 'false' then
-            print('You need to set the FiveManage API key in your server.cfg')
+            print(locale('log-fivemanage'))
             return
         end
         local extraData = {
@@ -115,7 +115,7 @@ if Config.Logs == 'discord' then
                 timer = 0
                 for name, queue in pairs(logQueue) do
                     if #queue > 0 then
-                        local postData = { username = 'RPX Logs', embeds = {} }
+                        local postData = { username = locale('log-name'), embeds = {} }
                         for i = 1, #queue do
                             postData.embeds[#postData.embeds + 1] = queue[i].data[1]
                         end
